@@ -2,6 +2,7 @@ package address
 
 import (
 	"bytes"
+	"database/sql/driver"
 	"encoding/base64"
 	"encoding/binary"
 	"encoding/hex"
@@ -330,4 +331,52 @@ func (a *Address) Data() []byte {
 
 func (a *Address) Equals(b *Address) bool {
 	return a.workchain == b.workchain && bytes.Equal(a.data, b.data)
+}
+
+func (a *Address) Value() (driver.Value, error) {
+	// turn workchain (int32) to bytes
+	addrBinary := make([]byte, 4)
+	binary.BigEndian.PutUint32(addrBinary, uint32(a.workchain))
+
+	// append data to workchain
+	addrBinary = append(addrBinary, a.data...)
+
+	return addrBinary, nil
+}
+
+func (a *Address) Scan(value any) error {
+	if value == nil {
+		*a = *NewAddressNone()
+		return nil
+	}
+
+	switch v := value.(type) {
+	case []byte:
+		if len(v) < 4 {
+			return errors.New("binary data too short for Address")
+		}
+		workchain := binary.BigEndian.Uint32(v[:4])
+		data := v[4:]
+		*a = *NewAddress(0, byte(workchain), data)
+		return nil
+	case string:
+		if v == "NONE" {
+			*a = *NewAddressNone()
+			return nil
+		}
+
+		addr, err := ParseRawAddr(v)
+		if err != nil {
+			addr, err := ParseAddr(v)
+			if err != nil {
+				return err
+			}
+			*a = *addr
+			return nil
+		}
+		*a = *addr
+		return nil
+	default:
+		return fmt.Errorf("unsupported type: %T", v)
+	}
 }

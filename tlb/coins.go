@@ -1,6 +1,7 @@
 package tlb
 
 import (
+	"database/sql/driver"
 	"errors"
 	"fmt"
 	"math/big"
@@ -233,4 +234,62 @@ func (g *Coins) Compare(coins *Coins) int {
 
 func (g *Coins) Decimals() int {
 	return g.decimals
+}
+
+// Value implements the driver.Valuer interface.
+// This allows Coins to be saved to a database efficiently as a numeric value.
+func (g Coins) Value() (driver.Value, error) {
+	if g.val == nil {
+		return "0", nil
+	}
+
+	// Return the nano value as a string, which will be stored as NUMERIC/DECIMAL in most databases
+	// This is the most efficient way to store big integers in databases
+	return g.val.String(), nil
+}
+
+// Scan implements the sql.Scanner interface.
+// This allows Coins to be read from a database.
+func (g *Coins) Scan(value any) error {
+	if value == nil {
+		g.val = big.NewInt(0)
+		return nil
+	}
+
+	var strVal string
+	var base int = 10
+
+	switch v := value.(type) {
+	case int64:
+		g.val = big.NewInt(v)
+		return nil
+	case []byte:
+		strVal = string(v)
+	case string:
+		// if string start with "0x", it's a hex string
+		if strings.HasPrefix(v, "0x") {
+			strVal = v[2:]
+			base = 16
+		} else {
+			strVal = v
+		}
+	default:
+		return fmt.Errorf("unsupported type for Coins: %T", value)
+	}
+
+	// Parse the string value
+	val, ok := new(big.Int).SetString(strVal, base)
+	if !ok {
+		return fmt.Errorf("invalid numeric format: %s", strVal)
+	}
+
+	g.val = val
+
+	return nil
+}
+
+// SetDecimals sets the number of decimal places for this Coins value.
+// This is useful when scanning from a database and you need to specify a different decimal precision.
+func (g *Coins) SetDecimals(decimals int) {
+	g.decimals = decimals
 }

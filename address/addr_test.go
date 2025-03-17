@@ -731,3 +731,139 @@ func TestAddress_Eq(t *testing.T) {
 		t.Fatal("not eq")
 	}
 }
+
+func TestAddress_ValueScan(t *testing.T) {
+	tests := []struct {
+		name    string
+		address *Address
+		wantErr bool
+	}{
+		{
+			name:    "standard address",
+			address: MustParseAddr("EQC6KV4zs8TJtSZapOrRFmqSkxzpq-oSCoxekQRKElf4nC1I"),
+			wantErr: false,
+		},
+		{
+			name:    "non-bounceable address",
+			address: MustParseAddr("UQC6KV4zs8TJtSZapOrRFmqSkxzpq-oSCoxekQRKElf4nHCN"),
+			wantErr: false,
+		},
+		{
+			name:    "testnet address",
+			address: MustParseAddr("kQC6KV4zs8TJtSZapOrRFmqSkxzpq-oSCoxekQRKElf4nJbC"),
+			wantErr: false,
+		},
+		{
+			name:    "different workchain",
+			address: MustParseAddr("0QG6KV4zs8TJtSZapOrRFmqSkxzpq-oSCoxekQRKElf4nEbb"),
+			wantErr: false,
+		},
+		{
+			name:    "none address",
+			address: NewAddressNone(),
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			// Test Value method
+			val, err := tt.address.Value()
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Value() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			// Test Scan method with the value from Value method
+			var scanned Address
+			err = scanned.Scan(val)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Scan() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			// Check if the scanned address equals the original
+			if !scanned.Equals(tt.address) {
+				t.Errorf("Address after Value->Scan cycle doesn't match original.\nOriginal: %v\nScanned: %v",
+					tt.address.String(), scanned.String())
+			}
+
+		})
+	}
+}
+
+func TestAddress_ScanString(t *testing.T) {
+	tests := []struct {
+		name    string
+		input   string
+		want    *Address
+		wantErr bool
+	}{
+		{
+			name:    "standard address string",
+			input:   "EQC6KV4zs8TJtSZapOrRFmqSkxzpq-oSCoxekQRKElf4nC1I",
+			want:    MustParseAddr("EQC6KV4zs8TJtSZapOrRFmqSkxzpq-oSCoxekQRKElf4nC1I"),
+			wantErr: false,
+		},
+		{
+			name:    "raw address string",
+			input:   "0:ba295e33b3c4c9b5265aa4ead1166a92931ce9abea120a8c5e91044a1257f89c",
+			want:    MustParseRawAddr("0:ba295e33b3c4c9b5265aa4ead1166a92931ce9abea120a8c5e91044a1257f89c"),
+			wantErr: false,
+		},
+		{
+			name:    "none address string",
+			input:   "NONE",
+			want:    NewAddressNone(),
+			wantErr: false,
+		},
+		{
+			name:    "invalid address string",
+			input:   "invalid-address",
+			want:    nil,
+			wantErr: true,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			var addr Address
+			err := addr.Scan(tt.input)
+
+			if (err != nil) != tt.wantErr {
+				t.Errorf("Scan() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if tt.wantErr {
+				return
+			}
+
+			if !addr.Equals(tt.want) {
+				t.Errorf("Scan() got = %v, want %v", addr.String(), tt.want.String())
+			}
+		})
+	}
+}
+
+func TestAddress_ScanInvalidType(t *testing.T) {
+	var addr Address
+	err := addr.Scan(123) // Integer is not a supported type
+
+	if err == nil {
+		t.Errorf("Scan() should return error for unsupported type")
+	}
+}
+
+func TestAddress_ScanNil(t *testing.T) {
+	var addr Address
+	err := addr.Scan(nil)
+
+	if err != nil {
+		t.Errorf("Scan(nil) error = %v", err)
+	}
+
+	if !addr.IsAddrNone() {
+		t.Errorf("Scan(nil) should result in NoneAddress, got %v", addr.Type())
+	}
+}
