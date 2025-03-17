@@ -5,7 +5,8 @@ import (
 	"encoding/binary"
 	"errors"
 	"fmt"
-	"github.com/xssnick/tonutils-go/tl"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func init() {

@@ -10,7 +10,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/xssnick/tonutils-go/ton/wallet"
+	"github.com/alan890104/tonutils-go/ton/wallet"
 )
 
 func main() {

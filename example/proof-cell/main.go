@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/xssnick/tonutils-go/tlb"
-	"github.com/xssnick/tonutils-go/tvm/cell"
 	"math/big"
+
+	"github.com/alan890104/tonutils-go/tlb"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 type ExampleStruct struct {

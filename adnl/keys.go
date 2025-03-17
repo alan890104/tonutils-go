@@ -4,7 +4,8 @@ import (
 	"bytes"
 	"crypto/ed25519"
 	"errors"
-	"github.com/xssnick/tonutils-go/tl"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func init() {

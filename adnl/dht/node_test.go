@@ -6,13 +6,14 @@ import (
 	"crypto/ed25519"
 	"encoding/hex"
 	"fmt"
-	"github.com/xssnick/tonutils-go/adnl"
-	"github.com/xssnick/tonutils-go/tl"
 	"net"
 	"reflect"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/alan890104/tonutils-go/adnl"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func newCorrectDhtNode(a byte, b byte, c byte, d byte, port string) (*dhtNode, error) {

@@ -7,13 +7,14 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"github.com/xssnick/raptorq"
-	"github.com/xssnick/tonutils-go/adnl"
-	"github.com/xssnick/tonutils-go/adnl/rldp"
-	"github.com/xssnick/tonutils-go/tl"
 	"reflect"
 	"sync"
 	"time"
+
+	"github.com/alan890104/tonutils-go/adnl"
+	"github.com/alan890104/tonutils-go/adnl/rldp"
+	"github.com/alan890104/tonutils-go/tl"
+	"github.com/xssnick/raptorq"
 )
 
 type CertCheckResult int

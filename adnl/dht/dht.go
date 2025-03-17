@@ -4,10 +4,11 @@ import (
 	"crypto/ed25519"
 	"encoding/hex"
 	"fmt"
-	"github.com/xssnick/tonutils-go/adnl"
-	"github.com/xssnick/tonutils-go/adnl/address"
-	"github.com/xssnick/tonutils-go/tl"
 	"reflect"
+
+	"github.com/alan890104/tonutils-go/adnl"
+	"github.com/alan890104/tonutils-go/adnl/address"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func init() {

@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/xssnick/tonutils-go/liteclient"
-	"github.com/xssnick/tonutils-go/tl"
+	"github.com/alan890104/tonutils-go/liteclient"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 type retryClient struct {

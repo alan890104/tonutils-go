@@ -7,9 +7,10 @@ import (
 	"crypto/sha512"
 	"errors"
 	"fmt"
-	"github.com/xssnick/tonutils-go/ton/wallet/hdwallet"
 	"math/big"
 	"strings"
+
+	"github.com/alan890104/tonutils-go/ton/wallet/hdwallet"
 
 	"golang.org/x/crypto/pbkdf2"
 )

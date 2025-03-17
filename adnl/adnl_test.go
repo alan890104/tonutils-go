@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xssnick/tonutils-go/tl"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func init() {

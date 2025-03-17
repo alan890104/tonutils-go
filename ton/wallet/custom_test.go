@@ -5,9 +5,10 @@ import (
 	"crypto/ed25519"
 	"encoding/hex"
 	"fmt"
-	"github.com/xssnick/tonutils-go/tlb"
-	"github.com/xssnick/tonutils-go/tvm/cell"
 	"testing"
+
+	"github.com/alan890104/tonutils-go/tlb"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 type configCustomV5R1 struct {

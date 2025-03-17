@@ -2,9 +2,10 @@ package tlb
 
 import (
 	"encoding/hex"
-	"github.com/xssnick/tonutils-go/address"
-	"github.com/xssnick/tonutils-go/tvm/cell"
 	"testing"
+
+	"github.com/alan890104/tonutils-go/address"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 func TestShardState_LoadFromCell(t *testing.T) {

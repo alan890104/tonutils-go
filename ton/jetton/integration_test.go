@@ -3,16 +3,17 @@ package jetton
 import (
 	"context"
 	"fmt"
-	"github.com/xssnick/tonutils-go/address"
-	"github.com/xssnick/tonutils-go/liteclient"
-	"github.com/xssnick/tonutils-go/tlb"
-	"github.com/xssnick/tonutils-go/ton"
-	"github.com/xssnick/tonutils-go/ton/nft"
-	"github.com/xssnick/tonutils-go/ton/wallet"
 	"log"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/alan890104/tonutils-go/address"
+	"github.com/alan890104/tonutils-go/liteclient"
+	"github.com/alan890104/tonutils-go/tlb"
+	"github.com/alan890104/tonutils-go/ton"
+	"github.com/alan890104/tonutils-go/ton/nft"
+	"github.com/alan890104/tonutils-go/ton/wallet"
 )
 
 var api = func() ton.APIClientWrapped {

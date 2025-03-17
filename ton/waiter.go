@@ -2,8 +2,9 @@ package ton
 
 import (
 	"context"
-	"github.com/xssnick/tonutils-go/tl"
 	"time"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 type waiterClient struct {

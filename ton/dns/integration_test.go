@@ -2,10 +2,11 @@ package dns
 
 import (
 	"context"
-	"github.com/xssnick/tonutils-go/liteclient"
-	"github.com/xssnick/tonutils-go/ton"
 	"testing"
 	"time"
+
+	"github.com/alan890104/tonutils-go/liteclient"
+	"github.com/alan890104/tonutils-go/ton"
 )
 
 var client = liteclient.NewConnectionPool()

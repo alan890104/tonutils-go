@@ -7,9 +7,10 @@ import (
 	"crypto/rand"
 	"crypto/sha256"
 	"errors"
-	"github.com/xssnick/tonutils-go/tl"
 	"math/big"
 	"sync/atomic"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 type Channel struct {

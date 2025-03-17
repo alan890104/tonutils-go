@@ -5,14 +5,15 @@ import (
 	"crypto/cipher"
 	"crypto/ed25519"
 	"fmt"
-	"github.com/xssnick/tonutils-go/adnl"
-	"github.com/xssnick/tonutils-go/tl"
 	"log"
 	"net"
 	"strconv"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/alan890104/tonutils-go/adnl"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 var Logger = log.Println

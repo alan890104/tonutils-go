@@ -10,10 +10,10 @@ import (
 	"reflect"
 	"time"
 
-	"github.com/xssnick/tonutils-go/tl"
+	"github.com/alan890104/tonutils-go/tl"
 
-	"github.com/xssnick/tonutils-go/tlb"
-	"github.com/xssnick/tonutils-go/tvm/cell"
+	"github.com/alan890104/tonutils-go/tlb"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 func init() {

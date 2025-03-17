@@ -1,8 +1,9 @@
 package address
 
 import (
-	"github.com/xssnick/tonutils-go/tl"
 	"net"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func init() {

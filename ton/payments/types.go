@@ -2,9 +2,10 @@ package payments
 
 import (
 	"encoding/hex"
-	"github.com/xssnick/tonutils-go/address"
-	"github.com/xssnick/tonutils-go/tlb"
-	"github.com/xssnick/tonutils-go/tvm/cell"
+
+	"github.com/alan890104/tonutils-go/address"
+	"github.com/alan890104/tonutils-go/tlb"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 // AsyncPaymentChannelCodeBoC Taken from https://github.com/ton-blockchain/payment-channels/tree/master#compiled-code

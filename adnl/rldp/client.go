@@ -12,9 +12,9 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/alan890104/tonutils-go/adnl"
+	"github.com/alan890104/tonutils-go/tl"
 	"github.com/xssnick/raptorq"
-	"github.com/xssnick/tonutils-go/adnl"
-	"github.com/xssnick/tonutils-go/tl"
 )
 
 type ADNL interface {

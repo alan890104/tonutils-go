@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"crypto/rand"
 	"crypto/sha256"
-	"github.com/xssnick/tonutils-go/address"
-	"github.com/xssnick/tonutils-go/tvm/cell"
 	"testing"
+
+	"github.com/alan890104/tonutils-go/address"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 func TestDomain_GetRecords(t *testing.T) {

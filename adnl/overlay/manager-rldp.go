@@ -5,9 +5,10 @@ import (
 	"crypto/ed25519"
 	"encoding/hex"
 	"fmt"
-	"github.com/xssnick/tonutils-go/adnl/rldp"
-	"github.com/xssnick/tonutils-go/tl"
 	"sync"
+
+	"github.com/alan890104/tonutils-go/adnl/rldp"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 type RLDP interface {

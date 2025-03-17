@@ -12,7 +12,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/xssnick/tonutils-go/address"
+	"github.com/alan890104/tonutils-go/address"
 )
 
 func TestLoadCell_LoadDict(t *testing.T) {

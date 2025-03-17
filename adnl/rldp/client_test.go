@@ -6,15 +6,16 @@ import (
 	"crypto/ed25519"
 	"crypto/rand"
 	"errors"
-	"github.com/xssnick/raptorq"
-	"github.com/xssnick/tonutils-go/adnl"
-	"github.com/xssnick/tonutils-go/tl"
 	"net/http"
 	"net/url"
 	"reflect"
 	"strings"
 	"testing"
 	"time"
+
+	"github.com/alan890104/tonutils-go/adnl"
+	"github.com/alan890104/tonutils-go/tl"
+	"github.com/xssnick/raptorq"
 )
 
 func init() {

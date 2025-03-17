@@ -1,6 +1,6 @@
 package node
 
-import "github.com/xssnick/tonutils-go/tl"
+import "github.com/alan890104/tonutils-go/tl"
 
 func init() {
 	tl.Register(ExternalMessage{}, "tonNode.externalMessage data:bytes = tonNode.ExternalMessage")

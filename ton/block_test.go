@@ -2,8 +2,9 @@ package ton
 
 import (
 	"encoding/hex"
-	"github.com/xssnick/tonutils-go/tvm/cell"
 	"testing"
+
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 func TestLoadShardsFromHashes(t *testing.T) {

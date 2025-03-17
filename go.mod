@@ -1,4 +1,4 @@
-module github.com/xssnick/tonutils-go
+module github.com/alan890104/tonutils-go
 
 go 1.18
 

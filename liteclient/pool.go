@@ -13,7 +13,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/xssnick/tonutils-go/tl"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 const _StickyCtxKey = "_ton_node_sticky"

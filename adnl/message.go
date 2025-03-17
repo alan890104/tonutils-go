@@ -4,9 +4,10 @@ import (
 	"bytes"
 	"crypto/sha256"
 	"fmt"
-	"github.com/xssnick/tonutils-go/tl"
 	"sync"
 	"time"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func init() {

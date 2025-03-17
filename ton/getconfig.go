@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/xssnick/tonutils-go/tl"
-	"github.com/xssnick/tonutils-go/tvm/cell"
+	"github.com/alan890104/tonutils-go/tl"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 func init() {

@@ -1,7 +1,7 @@
 package overlay
 
 import (
-	"github.com/xssnick/tonutils-go/tl"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 func UnwrapMessage(data tl.Serializable) (tl.Serializable, []byte) {

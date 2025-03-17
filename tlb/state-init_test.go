@@ -1,8 +1,9 @@
 package tlb
 
 import (
-	"github.com/xssnick/tonutils-go/tvm/cell"
 	"testing"
+
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 func TestStateInit_CalcAddress(t *testing.T) {

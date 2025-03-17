@@ -5,12 +5,13 @@ import (
 	"crypto/rand"
 	"encoding/binary"
 	"fmt"
-	"github.com/xssnick/tonutils-go/ton"
 	"math/big"
 
-	"github.com/xssnick/tonutils-go/address"
-	"github.com/xssnick/tonutils-go/tlb"
-	"github.com/xssnick/tonutils-go/tvm/cell"
+	"github.com/alan890104/tonutils-go/ton"
+
+	"github.com/alan890104/tonutils-go/address"
+	"github.com/alan890104/tonutils-go/tlb"
+	"github.com/alan890104/tonutils-go/tvm/cell"
 )
 
 type TransferPayload struct {

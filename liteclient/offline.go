@@ -3,7 +3,8 @@ package liteclient
 import (
 	"context"
 	"fmt"
-	"github.com/xssnick/tonutils-go/tl"
+
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 var ErrOfflineMode = fmt.Errorf("offline mode is used")

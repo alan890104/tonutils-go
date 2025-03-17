@@ -5,8 +5,6 @@ import (
 	"context"
 	"crypto/ed25519"
 	"fmt"
-	"github.com/xssnick/tonutils-go/adnl/address"
-	"github.com/xssnick/tonutils-go/tl"
 	"net"
 	"net/netip"
 	"strconv"
@@ -15,6 +13,9 @@ import (
 	"sync/atomic"
 	"time"
 	"unsafe"
+
+	"github.com/alan890104/tonutils-go/adnl/address"
+	"github.com/alan890104/tonutils-go/tl"
 )
 
 type Peer interface {
